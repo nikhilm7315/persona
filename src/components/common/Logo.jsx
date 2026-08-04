@@ -1,15 +1,17 @@
-import { Link } from 'react-router-dom'
 import personaLogo from '../../assets/icons/persona-logo.png'
 
-function Logo() {
+function Logo({ size = 'nav', className = '' }) {
+  const sizeStyles =
+    size === 'hero'
+      ? 'w-64 h-64 md:w-80 md:h-80'
+      : 'w-[82px] h-[73px]'
+
   return (
-    <Link to="/" className="flex-shrink-0">
-      <img
-        src={personaLogo}
-        alt="Persona - The Personality Grooming Club"
-        className="w-[82px] h-[73px] object-contain"
-      />
-    </Link>
+    <img
+      src={personaLogo}
+      alt="Persona - The Personality Grooming Club"
+      className={`${sizeStyles} object-contain ${className}`}
+    />
   )
 }
 

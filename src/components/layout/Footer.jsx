@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { ArrowRight } from 'lucide-react'
-import Logo from './Logo'
+import Logo from '../common/Logo'
 
 const LinkedinIcon = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -39,16 +37,6 @@ function Footer({
   phone = '+xxxxxxxxxxx',
   email = 'thepersonasoit@gmail.com',
 }) {
-  const [subscribeEmail, setSubscribeEmail] = useState('')
-  const [status, setStatus] = useState('idle')
-
-  function handleSubscribe(e) {
-    e.preventDefault()
-    if (!subscribeEmail) return
-    setStatus('submitted')
-    setSubscribeEmail('')
-  }
-
   return (
     <footer className="mx-4 md:mx-10 mb-10 mt-16 rounded-[28px] px-8 py-10 md:px-14 md:py-12 bg-gradient-to-b from-[#A28AE5] to-[#B6A6EB] text-white font-league-spartan shadow-lg">
       {/* Main Footer Content */}
@@ -85,46 +73,12 @@ function Footer({
             ))}
           </div>
         </div>
-
-        {/* Right Column: Subscribe Form */}
-        <div className="flex flex-col gap-4 w-full lg:w-auto lg:min-w-[340px]">
-          <h3 className="font-bold text-lg text-white">Subscribe</h3>
-          <form
-            onSubmit={handleSubscribe}
-            className="flex items-center w-full bg-white rounded-xl overflow-hidden shadow-sm p-1"
-          >
-            <label htmlFor="footer-email" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="footer-email"
-              type="email"
-              required
-              value={subscribeEmail}
-              onChange={(e) => setSubscribeEmail(e.target.value)}
-              placeholder="Get product updates"
-              className="flex-1 px-4 py-2.5 text-gray-700 placeholder:text-gray-400 focus:outline-none text-sm font-sans"
-            />
-            <button
-              type="submit"
-              aria-label="Subscribe"
-              className="flex items-center justify-center w-11 h-10 rounded-lg bg-[#3B82F6] hover:bg-[#2563EB] text-white transition-colors flex-shrink-0"
-            >
-              <ArrowRight size={18} />
-            </button>
-          </form>
-          {status === 'submitted' && (
-            <p className="text-sm text-white/90 font-medium">
-              Thanks &mdash; you&apos;re on the list!
-            </p>
-          )}
-        </div>
       </div>
 
       {/* Divider */}
       <hr className="border-white/25 my-8" />
 
-      {/* Bottom Bar: Socials, Product attribution, Copyright */}
+      {/* Bottom Bar: Socials & Copyright */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/80">
         {/* Social Icons */}
         <div className="flex items-center gap-3">
@@ -138,14 +92,6 @@ function Footer({
               <Icon size={16} />
             </a>
           ))}
-        </div>
-
-        {/* Product attribution */}
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-xs text-white/80">A product of</span>
-          <span className="font-bold text-xs border border-white/80 px-2 py-0.5 rounded tracking-widest uppercase bg-white/10">
-            The Persona
-          </span>
         </div>
 
         {/* Copyright */}

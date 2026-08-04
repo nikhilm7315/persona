@@ -1,13 +1,22 @@
-import React from 'react'
 
 const Title = ({
   title = "Unlock Your Potential",
-  subtitle = "Join SOIT RGPV's leading personality grooming club where confidence meets communication, and learning transforms into leadership."
+  subtitle = null
 }) => {
+  const gradientStyle = {
+    backgroundImage: 'linear-gradient(181.06deg, rgba(155, 93, 232, 0.8) -42.76%, rgba(95, 67, 178, 0.49) 118.24%)',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    color: 'transparent',
+  }
+
   return (
-  
     <div className="flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
-      <h1 className="font-league-spartan font-bold text-5xl md:text-6xl lg:text-[74px] text-[#9B5DE8] leading-tight tracking-tight mb-4">
+      <h1
+        className="font-league-spartan font-bold text-5xl md:text-6xl lg:text-[74px] leading-tight tracking-tight mb-4"
+        style={gradientStyle}
+      >
         {title}
       </h1>
       {subtitle && (

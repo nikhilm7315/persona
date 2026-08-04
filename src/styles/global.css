@@ -1,27 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
 
 @theme {
   --color-persona-bg-start: #0F0F1D;
-
   --color-persona-navy: #3A3153;
-
   --color-persona-purple: #9B5DE8;
-
   --color-persona-purple-dark: #5F43B2;
-
   --color-persona-card: #1E1633;
-
   --color-persona-footer: #E8E3F5;
-
   --font-league-spartan: 'League Spartan', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
 @layer base {
   body {
-    background: linear-gradient(180deg,
-        var(--color-persona-bg-start) 0%,
-        var(--color-persona-navy) 100%);
+    background: linear-gradient(180deg, var(--color-persona-bg-start) 0%, var(--color-persona-navy) 100%);
     color: #ffffff;
     min-height: 100vh;
   }
@@ -37,7 +30,6 @@
     background-clip: padding-box, border-box;
     transition: background-image 200ms ease;
   }
-
   .btn-primary:hover {
     background-image:
       linear-gradient(91.73deg, rgba(155, 93, 232, 0.8) 20.75%, rgba(0, 0, 0, 1) 112.23%),
@@ -46,24 +38,9 @@
 }
 
 @layer utilities {
-  .glow-bg {
-    position: relative;
-    isolation: isolate;
-  }
-
-  .glow-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: radial-gradient(circle at 50% 30%, rgba(155, 93, 232, 0.25), transparent 60%);
-    pointer-events: none;
-  }
-
   .gradient-ring {
     position: relative;
   }
-
   .gradient-ring::before {
     content: '';
     position: absolute;
@@ -78,8 +55,67 @@
   }
 
   .gradient-text {
-    background: linear-gradient(90deg, #9B5DE8 0%, #B87CFF 100%);
+    background-image: linear-gradient(181.06deg, rgba(155, 93, 232, 0.8) -42.76%, rgba(95, 67, 178, 0.49) 118.24%);
+    background-clip: text;
     -webkit-background-clip: text;
+    color: transparent;
     -webkit-text-fill-color: transparent;
   }
+
+  .logo-glow {
+    position: relative;
+  }
+  .logo-glow::before {
+    content: '';
+    position: absolute;
+    inset: -20%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(155, 93, 232, 0.35), transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
 }
