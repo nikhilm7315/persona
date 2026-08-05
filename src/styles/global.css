@@ -2,12 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-persona-bg-start: #0F0F1D;
-  --color-persona-navy: #3A3153;
-  --color-persona-purple: #9B5DE8;
-  --color-persona-purple-dark: #5F43B2;
-  --color-persona-card: #1E1633;
-  --color-persona-footer: #E8E3F5;
+  --color-persona-bg-start: #060814;
+  --color-persona-navy: #0e1227;
+  --color-persona-purple: #00d2ff;
+  --color-persona-purple-dark: #0052ff;
+  --color-persona-card: #0e1326;
+  --color-persona-footer: #0c0e1a;
   --font-league-spartan: 'League Spartan', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
 }
@@ -24,16 +24,16 @@
   .btn-primary {
     border: 1px solid transparent;
     background-image:
-      linear-gradient(91.73deg, rgba(155, 93, 232, 0.16) 20.75%, rgba(216, 216, 216, 0) 112.23%),
-      linear-gradient(90deg, #3A3153 0%, rgba(95, 67, 178, 0.49) 50%, rgba(58, 49, 83, 0.66) 100%);
+      linear-gradient(91.73deg, rgba(0, 210, 255, 0.16) 20.75%, rgba(216, 216, 216, 0) 112.23%),
+      linear-gradient(90deg, #0e1227 0%, rgba(0, 82, 255, 0.49) 50%, rgba(14, 18, 39, 0.66) 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     transition: background-image 200ms ease;
   }
   .btn-primary:hover {
     background-image:
-      linear-gradient(91.73deg, rgba(155, 93, 232, 0.8) 20.75%, rgba(0, 0, 0, 1) 112.23%),
-      linear-gradient(90deg, #3A3153 0%, rgba(95, 67, 178, 0.49) 50%, rgba(58, 49, 83, 0.66) 100%);
+      linear-gradient(91.73deg, rgba(0, 210, 255, 0.8) 20.75%, rgba(0, 0, 0, 1) 112.23%),
+      linear-gradient(90deg, #0e1227 0%, rgba(0, 82, 255, 0.49) 50%, rgba(14, 18, 39, 0.66) 100%);
   }
 }
 
@@ -47,7 +47,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(90deg, #3A3153 0%, rgba(95, 67, 178, 0.49) 50%, #3A3153 66%);
+    background: linear-gradient(90deg, #0e1227 0%, rgba(0, 82, 255, 0.49) 50%, #0e1227 66%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -55,7 +55,7 @@
   }
 
   .gradient-text {
-    background-image: linear-gradient(181.06deg, rgba(155, 93, 232, 0.8) -42.76%, rgba(95, 67, 178, 0.49) 118.24%);
+    background-image: linear-gradient(181.06deg, rgba(0, 210, 255, 0.9) -42.76%, rgba(0, 82, 255, 0.6) 118.24%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -70,7 +70,7 @@
     position: absolute;
     inset: -20%;
     z-index: -1;
-    background: radial-gradient(circle, rgba(155, 93, 232, 0.35), transparent 70%);
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.35), transparent 70%);
     filter: blur(40px);
     pointer-events: none;
     animation: pulseGlow 4s ease-in-out infinite;

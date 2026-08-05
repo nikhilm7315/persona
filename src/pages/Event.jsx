@@ -1,5 +1,5 @@
-import VerticalTimeline from '../components/common/Events/VerticalTimeline'
-import Title from '../components/common/Title'
+import VerticalTimeline from '../components/Events/VerticalTimeline'
+import Title from '../components/ui/Title'
 
 
 const verticalEvents = [

@@ -1,7 +1,7 @@
-import Button from "../components/common/Button"
-import Title from "../components/common/Title"
-import Logo from '../components/common/Logo'
-import EventSlider from '../components/common/EventSlider'
+import Button from "../components/ui/Button"
+import Title from "../components/ui/Title"
+import Logo from '../components/ui/Logo'
+import EventSlider from '../components/Home/EventSlider'
 import TeamSection from '../components/Home/TeamSection'
 import EventHome from "../components/Home/EventHome"
 

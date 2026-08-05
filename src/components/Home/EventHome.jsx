@@ -1,4 +1,4 @@
-import Title from '../common/Title'
+import Title from '../ui/Title'
 import arrowDark from '../../assets/icons/arrowdark.svg'
 import arrowLight from '../../assets/icons/arrowlight.svg'
 import { EVENTS_LIST } from '../../data/eventsData'

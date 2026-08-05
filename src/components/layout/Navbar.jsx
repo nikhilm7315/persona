@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import Logo from '../common/Logo'
-import Button from '../common/Button'
-import NavigationLink from '../common/NavigationLink'
+import Logo from '../ui/Logo'
+import Button from '../ui/Button'
+import NavigationLink from '../ui/NavigationLink'
 import { NAV_LINKS } from '../../constants/navLinks'
 
 function Navbar() {

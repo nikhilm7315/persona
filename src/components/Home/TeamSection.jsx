@@ -1,5 +1,5 @@
-import Title from '../common/Title'
-import MembersCard from '../common/MembersCard'
+import Title from '../ui/Title'
+import MembersCard from '../ui/MembersCard'
 import { TEAM_MEMBERS } from '../../data/teamData'
 
 function TeamSection() {
