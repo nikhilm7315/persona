@@ -9,7 +9,7 @@ function Tag({ label }) {
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 color: '#fff',
-                backgroundColor: 'rgba(155, 93, 232, 0.8)',
+                backgroundColor: 'rgba(0, 180, 216, 0.8)',
                 padding: '2px 8px',
                 borderRadius: 3,
             }}
@@ -59,7 +59,7 @@ function VerticalTimeline({ events }) {
                                     style={{
                                         fontSize: 28,
                                         fontWeight: 700,
-                                        color: isActive ? 'var(--accent, #a28ae5)' : '#ffffff',
+                                        color: '#ffffff',
                                         transform: isActive ? 'scale(1.08) translateX(-3px)' : 'scale(1) translateX(0)',
                                         transition: 'color 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                         lineHeight: 1,
@@ -71,7 +71,7 @@ function VerticalTimeline({ events }) {
                                     style={{
                                         fontSize: 12,
                                         fontWeight: 600,
-                                        color: isActive ? '#a28ae5' : 'rgba(255, 255, 255, 0.6)',
+                                        color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.6)',
                                         marginTop: 6,
                                         letterSpacing: '0.08em',
                                         transition: 'color 0.3s ease',
@@ -105,11 +105,11 @@ function VerticalTimeline({ events }) {
                                 {/* card */}
                                 <div
                                     style={{
-                                        backgroundColor: '#0F0F1D',
+                                        backgroundColor: 'var(--color-persona-card, #0e1326)',
                                         border: '1px solid',
-                                        borderColor: isActive ? 'rgba(162, 138, 229, 0.35)' : 'rgba(255, 255, 255, 0.08)',
+                                        borderColor: isActive ? 'rgba(0, 180, 216, 0.35)' : 'rgba(255, 255, 255, 0.08)',
                                         boxShadow: isActive
-                                            ? '0 12px 28px rgba(0, 0, 0, 0.4), 0 0 20px rgba(159, 252, 253, 0.15)'
+                                            ? '0 12px 28px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 180, 216, 0.15)'
                                             : '0 4px 12px rgba(0, 0, 0, 0.2)',
                                         marginLeft: 24,
                                         marginRight: 10,

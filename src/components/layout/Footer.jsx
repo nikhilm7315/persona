@@ -38,21 +38,31 @@ function Footer({
   email = 'thepersonasoit@gmail.com',
 }) {
   return (
-    <footer className="mx-4 md:mx-10 mb-10 mt-16 rounded-[28px] px-8 py-10 md:px-14 md:py-12 bg-gradient-to-b from-[#A28AE5] to-[#B6A6EB] text-white font-league-spartan shadow-lg">
+    <footer className="relative overflow-hidden mx-4 md:mx-10 mb-10 mt-16 rounded-[28px] px-8 py-10 md:px-14 md:py-12 bg-persona-footer border border-white/10 text-white font-league-spartan shadow-lg">
+      {/* Background Glow */}
+      <div className="footer-glow" />
+
+      {/* Absolute Sparkle Decoration */}
+      <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 pointer-events-none select-none opacity-85 z-10">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0Z" fill="#FF5A36" />
+        </svg>
+      </div>
+
       {/* Main Footer Content */}
-      <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-10 lg:gap-16">
+      <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-10 lg:gap-16 relative z-10">
         {/* Left Column: Logo & Contact */}
         <div className="flex flex-col gap-3 min-w-[220px]">
           <Logo />
           <a
             href={`tel:${phone}`}
-            className="font-medium text-lg text-white hover:opacity-90 transition-opacity mt-2"
+            className="font-medium text-lg text-white hover:text-persona-orange transition-colors mt-2"
           >
             {phone}
           </a>
           <a
             href={`mailto:${email}`}
-            className="text-base text-white/90 hover:underline transition-all"
+            className="text-base text-white/90 hover:text-persona-orange transition-all"
           >
             {email}
           </a>
@@ -66,7 +76,7 @@ function Footer({
               <a
                 key={link.label}
                 href={link.href}
-                className="text-base text-white/80 hover:text-white transition-colors"
+                className="text-base text-white/80 hover:text-persona-orange transition-colors"
               >
                 {link.label}
               </a>
@@ -76,10 +86,10 @@ function Footer({
       </div>
 
       {/* Divider */}
-      <hr className="border-white/25 my-8" />
+      <hr className="border-white/25 my-8 relative z-10" />
 
       {/* Bottom Bar: Socials & Copyright */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/80">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/80 relative z-10">
         {/* Social Icons */}
         <div className="flex items-center gap-3">
           {SOCIAL_LINKS.map(({ label, href, Icon }) => (
@@ -87,7 +97,7 @@ function Footer({
               key={label}
               href={href}
               aria-label={label}
-              className="flex items-center justify-center w-9 h-9 rounded-full border border-white/40 hover:bg-white/15 transition-colors"
+              className="flex items-center justify-center w-9 h-9 rounded-full border border-white/40 hover:border-persona-orange hover:text-persona-orange hover:bg-white/5 transition-colors"
             >
               <Icon size={16} />
             </a>

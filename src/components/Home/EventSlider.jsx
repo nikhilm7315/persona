@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 function ImageFallbackPlaceholder({ title }) {
   return (
-    <div className="w-full h-full min-h-[260px] md:min-h-[360px] bg-gradient-to-br from-[#1E1535] via-[#2A1D4A] to-[#161028] flex flex-col items-center justify-center p-6 text-center select-none">
-      <div className="w-16 h-16 rounded-2xl bg-[#9B5DE8]/10 border border-[#9B5DE8]/30 flex items-center justify-center mb-3 text-[#9B5DE8] shadow-lg shadow-[#9B5DE8]/10">
+    <div className="w-full h-full min-h-[260px] md:min-h-[360px] bg-gradient-to-br from-[#001280] via-[#010626] to-[#0B080A] flex flex-col items-center justify-center p-6 text-center select-none">
+      <div className="w-16 h-16 rounded-2xl bg-persona-purple/10 border border-persona-purple/30 flex items-center justify-center mb-3 text-persona-purple shadow-lg shadow-persona-purple/10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-8 h-8"
@@ -94,7 +94,7 @@ function EventDetails({
     <div className="w-full md:w-1/2 p-6 md:p-10 lg:p-12 flex flex-col justify-between items-start gap-6">
       <div className="flex flex-col items-start gap-4">
         {/* Dynamic Title */}
-        <h2 className="font-league-spartan font-bold text-[28px] sm:text-[34px] md:text-[38px] lg:text-[40px] text-[#9B5DE8] leading-tight tracking-tight">
+        <h2 className="font-league-spartan font-bold text-[28px] sm:text-[34px] md:text-[38px] lg:text-[40px] text-white leading-tight tracking-tight">
           {displayTitle}
         </h2>
 
@@ -120,7 +120,7 @@ function EventDetails({
           onClick={onRegister}
           className="rounded-full px-8 py-2.5 font-league-spartan font-medium text-sm md:text-base text-white transition-all duration-200 hover:scale-105 active:scale-95 shadow-md cursor-pointer"
           style={{
-            background: 'linear-gradient(90deg, #9B5DE8 0%, #5F43B2 100%)',
+            background: 'linear-gradient(90deg, #00b4d8 0%, #0077b6 100%)',
           }}
         >
           {buttonText}
@@ -130,7 +130,7 @@ function EventDetails({
           href={registerHref}
           className="inline-block rounded-full px-8 py-2.5 font-league-spartan font-medium text-sm md:text-base text-white transition-all duration-200 hover:scale-105 active:scale-95 shadow-md text-center"
           style={{
-            background: 'linear-gradient(90deg, #9B5DE8 0%, #5F43B2 100%)',
+            background: 'linear-gradient(90deg, #00b4d8 0%, #0077b6 100%)',
           }}
         >
           {buttonText}
@@ -160,11 +160,11 @@ function EventSlideCard({ event, placeholderImage, onRegister }) {
 
   return (
     <div
-      className="w-full bg-[#261B40]/90 backdrop-blur-md rounded-3xl overflow-hidden flex flex-col md:flex-row items-stretch shadow-[0_0_28px_rgba(95,67,178,0.49)] relative transition-all duration-300"
+      className="w-full bg-[#010626]/90 backdrop-blur-md rounded-3xl overflow-hidden flex flex-col md:flex-row items-stretch shadow-[0_0_28px_rgba(0,119,182,0.4)] relative transition-all duration-300"
       style={{
         border: '1px solid transparent',
         backgroundImage:
-          'linear-gradient(#261B40, #261B40), linear-gradient(90deg, #3A3153 0%, #5F43B2 49.32%, #3A3153 66%)',
+          'linear-gradient(#010626, #010626), linear-gradient(90deg, #001280 0%, #0077b6 49.32%, #001280 66%)',
         backgroundOrigin: 'border-box',
         backgroundClip: 'padding-box, border-box',
       }}
@@ -215,7 +215,7 @@ function EventSliderControls({
           type="button"
           onClick={onPrev}
           aria-label="Previous Slide"
-          className="w-8 h-8 rounded-full bg-[#261B40] border border-white/10 text-white/70 hover:text-white hover:border-[#9B5DE8] hover:bg-[#5F43B2]/30 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
+          className="w-8 h-8 rounded-full bg-persona-card border border-white/10 text-white/70 hover:text-white hover:border-persona-purple hover:bg-persona-purple-dark/30 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -240,8 +240,8 @@ function EventSliderControls({
             aria-label={`Go to slide ${idx + 1}`}
             className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
               currentIndex === idx
-                ? 'w-8 bg-[#9B5DE8] shadow-[0_0_8px_rgba(155,93,232,0.6)]'
-                : 'w-2.5 bg-[#5F43B2]/40 hover:bg-[#9B5DE8]/60'
+                ? 'w-8 bg-persona-purple shadow-[0_0_8px_rgba(0,180,216,0.6)]'
+                : 'w-2.5 bg-persona-purple-dark/40 hover:bg-persona-purple/60'
             }`}
           />
         ))}
@@ -253,7 +253,7 @@ function EventSliderControls({
           type="button"
           onClick={onNext}
           aria-label="Next Slide"
-          className="w-8 h-8 rounded-full bg-[#261B40] border border-white/10 text-white/70 hover:text-white hover:border-[#9B5DE8] hover:bg-[#5F43B2]/30 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
+          className="w-8 h-8 rounded-full bg-persona-card border border-white/10 text-white/70 hover:text-white hover:border-persona-purple hover:bg-persona-purple-dark/30 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

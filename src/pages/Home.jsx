@@ -1,4 +1,4 @@
-import Button from "../components/ui/Button"
+import Button from "@/components/ui/button"
 import Title from "../components/ui/Title"
 import Logo from '../components/ui/Logo'
 import EventSlider from '../components/Home/EventSlider'
@@ -14,7 +14,7 @@ function Home() {
           title="Unlock Your Potential"
           subtitle="Join SOIT RGPV's leading personality grooming club where confidence meets communication, and learning transforms into leadership."
         />
-        <Button variant="wide">Join Our Community</Button>
+        <Button className='w-60' variant="wide">Join Our Community</Button>
       </div>
 
       {/* Logo Glow */}
