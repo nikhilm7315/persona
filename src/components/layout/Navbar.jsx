@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <header className="w-full bg-transparent relative z-50">
-      <nav className="w-full max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-14 py-6">
+      <nav className="w-full max-w-6xl mx-auto flex items-center justify-between py-6">
         <Logo />
 
         <div className="hidden lg:flex items-center gap-7 xl:gap-10">

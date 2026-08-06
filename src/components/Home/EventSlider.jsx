@@ -382,7 +382,7 @@ function EventSlider({
 
   return (
     <div
-      className="w-full max-w-5xl mx-auto flex flex-col items-center gap-2 px-4"
+      className="w-full max-w-6xl mx-auto flex flex-col items-center gap-2 px-4"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

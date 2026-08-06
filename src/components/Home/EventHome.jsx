@@ -10,12 +10,12 @@ function EventTeaserCard({ title, heading, description, image, src, isDark, href
   const displayImage = image || src
 
   return (
-    <div className={`relative rounded-3xl p-6 pt-8 flex flex-col gap-3 ${isDark ? 'bg-persona-purple-dark' : 'bg-[#E8D6FF]'}`}>
+    <div className={`relative rounded-3xl p-6 pt-8 flex flex-col gap-3 ${isDark ? 'bg-persona-purple-dark' : 'bg-white'}`}>
       <a
         href={href}
         aria-label={`Learn more about ${displayTitle}`}
         className={`absolute -top-4 -right-4 w-14 h-14 rounded-full flex items-center justify-center transition-transform hover:scale-105 ${
-          isDark ? 'bg-[#E8D6FF]' : 'bg-persona-purple-dark'
+          isDark ? 'bg-white' : 'bg-persona-purple-dark'
         }`}
       >
         <img src={arrowIcon} alt="" className="w-5 h-5" aria-hidden="true" />

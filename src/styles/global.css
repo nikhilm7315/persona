@@ -7,6 +7,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  /* ============================================
+     PERSONA DESIGN SYSTEM - COLOR PALETTE
+     ============================================
+     Production-grade color system for consistent branding
+     across all pages and components.
+  */
   --color-persona-bg-start: #010626;
   --color-persona-navy: #001280;
   --color-persona-purple: #00b4d8;
@@ -21,18 +27,41 @@
 }
 
 @layer base {
-  body {
+  /* ============================================
+     UNIVERSAL BACKGROUND SYSTEM
+     ============================================
+     Production-grade approach for consistent background across all pages:
+     
+     1. Applied to <html> element (root) for maximum coverage
+     2. Uses 'background-attachment: fixed' to prevent scroll issues
+     3. Ensures gradient stays consistent during navigation
+     4. Body background set to 'transparent' to inherit html background
+     
+     This approach ensures:
+     - No page-specific background overrides needed
+     - Consistent visual experience across all routes
+     - Smooth transitions between pages
+     - No flash of background color on route changes
+  */
+  html {
+    @apply font-sans;
     background: linear-gradient(180deg, #0012a6 0%, #010626 50%, #0B080A 100%);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: transparent;
     color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
+  
   * {
     @apply border-border outline-ring/50;
-  }
-  html {
-    @apply font-sans;
   }
 }
 
@@ -50,6 +79,40 @@
 }
 
 @layer utilities {
+  /* Universal background class for consistent application across all pages */
+  .glow-bg {
+    position: relative;
+    background: transparent;
+  }
+  
+  /* Custom scrollbar styling - Minimal monochrome */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  /* Scroll snap utility for smooth card centering */
+  .snap-y {
+    scroll-snap-type: y proximity;
+  }
+  
+  .snap-center {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  
   .gradient-ring {
     position: relative;
   }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Tag({ label }) {
     return (
@@ -19,8 +19,13 @@ function Tag({ label }) {
     )
 }
 
-function VerticalTimeline({ events }) {
-    const [active, setActive] = useState(null)
+function VerticalTimeline({ events, activeIndex = 0 }) {
+    const [active, setActive] = useState(activeIndex)
+
+    // Update active when activeIndex changes
+    useEffect(() => {
+        setActive(activeIndex)
+    }, [activeIndex])
 
     return (
         <section style={{ padding: '96px 0 80px' }}>
