@@ -273,10 +273,10 @@ function EventSliderControls({
 
 
 // Import default local high quality image assets
-import vichaarSangam from '../../assets/icons/vichaarSangam.jpg'
-import linkedInWorkshop from '../../assets/icons/linkedInWorkshop.jpg'
-import alumniInteraction from '../../assets/icons/alumniInteraction.jpg'
-import speakoff from '../../assets/icons/speakoff.png'
+import vichaarSangam from '../../assets/vichaarSangam.jpg'
+import linkedInWorkshop from '../../assets/linkedInWorkshop.jpg'
+import alumniInteraction from '../../assets/alumniInteraction.jpg'
+import speakoff from '../../assets/speakoff.png'
 
 const DEFAULT_EVENTS = [
   {

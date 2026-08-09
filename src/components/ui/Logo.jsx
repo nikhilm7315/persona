@@ -1,4 +1,4 @@
-import personaLogo from '../../assets/icons/persona-logo.png'
+import personaLogo from '../../assets/persona-logo.png'
 
 function Logo({ size = 'nav', className = '' }) {
   const sizeStyles =

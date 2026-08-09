@@ -1,10 +1,10 @@
-import shrishtiImg from '../assets/icons/TeamImages/shrishti.png'
-import luckyImg from '../assets/icons/TeamImages/lucky.png'
-import anshImg from '../assets/icons/TeamImages/ansh.png'
-import leadBgImg from '../assets/icons/TeamImages/leadbg.png'
-import execBgImg from '../assets/icons/TeamImages/execoordinatorbg.png'
-import vedanshiImg from '../assets/icons/TeamImages/vedanshi.png'
-import suyashImg from '../assets/icons/TeamImages/suyash.png'
+import shrishtiImg from '../assets/TeamImages/shrishti.png'
+import luckyImg from '../assets/TeamImages/lucky.png'
+import anshImg from '../assets/TeamImages/ansh.png'
+import leadBgImg from '../assets/TeamImages/leadbg.png'
+import execBgImg from '../assets/TeamImages/execoordinatorbg.png'
+import vedanshiImg from '../assets/TeamImages/vedanshi.png'
+import suyashImg from '../assets/TeamImages/suyash.png'
 
 export const TEAM_MEMBERS = [
   {

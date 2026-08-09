@@ -1,10 +1,10 @@
-import alumniImg from '../assets/icons/alumniInteraction.jpg'
-import linkedImg from '../assets/icons/linkedInWorkshop.jpg'
-import speakoff from '../assets/icons/speakoff.png'
-import vichaarSangam from '../assets/icons/vichaarSnagam.png'
-import eventillustration1 from '../assets/icons/eventillustration1.png'
-import eventillustration2 from '../assets/icons/eventillustration2.png'
-import eventillustration3 from '../assets/icons/eventillustration3.jpg'
+import alumniImg from '../assets/alumniInteraction.jpg'
+import linkedImg from '../assets/linkedInWorkshop.jpg'
+import speakoff from '../assets/speakoff.png'
+import vichaarSangam from '../assets/vichaarSnagam.png'
+import eventillustration1 from '../assets/eventillustration1.png'
+import eventillustration2 from '../assets/eventillustration2.png'
+import eventillustration3 from '../assets/eventillustration3.jpg'
 
 export const EVENTS_LIST = [
   {
