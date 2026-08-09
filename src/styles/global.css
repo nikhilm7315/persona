@@ -157,7 +157,7 @@
     right: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(255, 90, 54, 0.35) 0%, rgba(200, 50, 22, 0.08) 50%, transparent 70%);
+    background: radial-gradient(circle, #0052ff 0%, rgba(200, 50, 22, 0.08) 50%, transparent 70%);
     filter: blur(60px);
     pointer-events: none;
     z-index: 0;
