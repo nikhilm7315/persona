@@ -1,3 +1,4 @@
+import * as React from "react"
 import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
@@ -22,6 +23,6 @@ function Button({
   );
 }
 
-export { Button }
+export { Button, buttonVariants }
 export default Button
 

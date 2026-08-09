@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Logo from '../ui/Logo'
-import Button from '../ui/button'
+import Button from '../ui/Button'
 import NavigationLink from '../ui/NavigationLink'
 import { NAV_LINKS } from '../../constants/navLinks'
 
