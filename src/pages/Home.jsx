@@ -1,4 +1,4 @@
-import Button from "@/components/ui/button"
+import Button from "../components/ui/Button"
 import Title from "../components/ui/Title"
 import Logo from '../components/ui/Logo'
 import EventSlider from '../components/Home/EventSlider'
