@@ -42,13 +42,6 @@ function Footer({
       {/* Background Glow */}
       <div className="footer-glow" />
 
-      {/* Absolute Sparkle Decoration */}
-      {/* <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 pointer-events-none select-none opacity-85 z-10">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 0C12 6.62742 17.3726 12 24 12C17.3726 12 12 17.3726 12 24C12 17.3726 6.62742 12 0 12C6.62742 12 12 6.62742 12 0Z" fill="#FF5A36" />
-        </svg>
-      </div> */}
-
       {/* Main Footer Content */}
       <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-10 lg:gap-16 relative z-10">
         {/* Left Column: Logo & Contact */}
