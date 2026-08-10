@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { EVENTS_LIST } from '../data/eventsData'
 import EventQueueCard from '../components/Events/EventQueueCard'
 import EventDetailsPanel from '../components/Events/EventDetailsPanel'
+import ImageSlideshow from '@/components/Events/ImageSlideshow/ImageSlideShow'
 
 function Events() {
     const [activeCardIndex, setActiveCardIndex] = useState(0)
@@ -76,8 +77,9 @@ function Events() {
                         timeline={timelineEvents}
                     />
                 </div>
-
+                
             </div>
+            <ImageSlideshow />
         </div>
     )
 }

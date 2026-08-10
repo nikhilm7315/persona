@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import Card from './NewParagraph'
 function TimelineCard({ event, isActive, onHover }) {
   return (
     <div
@@ -64,6 +64,7 @@ function EventDetailsPanel({ event, timeline = [] }) {
         <div className="flex-1">
           <p className="text-xs font-light font-poppins text-white/50 leading-relaxed">
             {event.description}
+            {/* <Card description={event.description.substring(0, 100)} /> */}
           </p>
         </div>
 

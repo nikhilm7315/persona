@@ -1,6 +1,11 @@
+import Card from "./NewParagraph"
 function EventQueueCard({ id, title, description, src, image }) {
   const bgImage = src || image
-  const shortDescription = description ? `${description.substring(0, 80)}...` : ''
+  const shortDescription = description
+    ? description.length > 80
+      ? `${description.substring(0, 80)}...`
+      : description
+    : ''
 
   return (
     <div className="group relative w-full max-w-[320px] aspect-[2/3] rounded-[28px] overflow-hidden shadow-xl shadow-black/30 transition-all duration-700 hover:shadow-black/50 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer scroll-mt-24">
@@ -28,9 +33,9 @@ function EventQueueCard({ id, title, description, src, image }) {
             </h2>
           </div>
           
-          <p className="text-xs font-light font-poppins text-white/80 leading-relaxed max-w-[90%]">
+          <div className="text-xs font-light font-poppins text-white/80 leading-relaxed max-w-[90%]">
             {shortDescription}
-          </p>
+          </div>
         </div>
       </div>
     </div>
