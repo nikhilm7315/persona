@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Title from '../ui/Title'
 import MembersCard from '../ui/MembersCard'
 import { TEAM_MEMBERS } from '../../data/teamData'
@@ -20,12 +21,12 @@ function TeamSection() {
           />
         ))}
       </div>
-      <a
-        href="/team"
+      <Link
+        to="/team"
         className="font-league-spartan font-medium text-white/80 hover:text-white transition-colors text-base flex items-center gap-2"
       >
         View whole team &rarr;
-      </a>
+      </Link>
     </div>
   )
 }
