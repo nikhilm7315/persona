@@ -1,5 +1,5 @@
 import React from 'react'
-import './ImageSlideshow.css'
+import './ImageSlideShow.css'
 import alumniInteraction from '../../../assets/alumniInteraction.jpg'
 import linkedInWorkshop from '../../../assets/linkedInWorkshop.jpg'
 import speakoff from '../../../assets/speakoff.png'
