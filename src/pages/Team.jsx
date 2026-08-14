@@ -56,40 +56,34 @@ export default function TeamPage({ members = defaultMembers }) {
   return (
     <section
       className="relative flex-1 flex flex-col overflow-hidden text-white"
-      style={{
-        background:
-          "linear-gradient(180deg, #16308f 0%, #0d1e6e 14%, #0a1440 30%, #050b24 55%, #000000 100%)",
-      }}
     >
-      {/* ambient glow, echoes the halo behind the Persona crest in the reference */}
-      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] bg-blue-500/25 rounded-full blur-[140px]" />
 
       <div className="relative z-10 flex-1 flex flex-col">
-      <div className="max-w-7xl w-full mx-auto px-3 sm:px-6 md:px-8 py-8 md:py-16">
-        <p className="text-blue-400 text-xs font-semibold tracking-[0.15em] mb-2 sm:mb-3">
-          OUR TEAM
-        </p>
-        <h1 className="text-xl sm:text-2xl md:text-4xl font-bold leading-tight mb-6 md:mb-10">
-          The People Behind Our Success
-        </h1>
+        <div className="max-w-7xl w-full mx-auto px-3 sm:px-6 md:px-8 py-8 md:py-16">
+          <p className="text-blue-400 text-xs font-semibold tracking-[0.15em] mb-2 sm:mb-3">
+            OUR TEAM
+          </p>
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold leading-tight mb-6 md:mb-10">
+            The People Behind Our Success
+          </h1>
 
-        <div className="flex flex-row gap-4 sm:gap-6 lg:gap-10">
-          <div className="w-[130px] sm:w-[180px] md:w-[240px] lg:w-[340px] shrink-0">
-            <NameScroller
-              members={members}
-              activeId={activeId}
-              onSelect={setActiveId}
-            />
-            <p className="hidden sm:block text-slate-500 text-xs mt-3">
-              Scroll or drag to browse the team.
-            </p>
-          </div>
+          <div className="flex flex-row gap-4 sm:gap-6 lg:gap-10">
+            <div className="w-[130px] sm:w-[180px] md:w-[240px] lg:w-[340px] shrink-0">
+              <NameScroller
+                members={members}
+                activeId={activeId}
+                onSelect={setActiveId}
+              />
+              <p className="hidden sm:block text-slate-500 text-xs mt-3">
+                Scroll or drag to browse the team.
+              </p>
+            </div>
 
-          <div className="relative flex-1 min-w-0">
-            <MemberDetail member={active} />
+            <div className="relative flex-1 min-w-0">
+              <MemberDetail member={active} />
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );
@@ -242,7 +236,7 @@ function NameScroller({ members, activeId, onSelect }) {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-    
+
       <div
         ref={trackRef}
         className="absolute inset-x-0 top-0 flex flex-col will-change-transform"
@@ -333,13 +327,14 @@ function MemberDetail({ member }) {
         <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-md mb-4 sm:mb-6">
           {shown.bio}
         </p>
-        <SocialRow socials={shown.socials} />
-
-        <div className="mt-6 sm:mt-10 pt-5 sm:pt-8 border-t border-blue-500/15 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-6 max-w-md">
-          <Field label="Email" value={shown.email} />
-          <Field label="Expertise" value={shown.expertise} />
-          <Field label="Phone" value={shown.phone} />
-          <Field label="Experience" value={shown.experience} />
+        <div className="flex items-center gap-4">
+          <SocialRow socials={shown.socials} />
+          {shown.team && (
+            <span className="px-3 py-2 rounded-lg border border-blue-500/50 text-xs sm:text-sm">
+              <span className="text-blue-400 font-semibold tracking-wide mr-1">TEAM:</span>
+              <span className="text-slate-200">{shown.team}</span>
+            </span>
+          )}
         </div>
       </div>
 
@@ -419,11 +414,8 @@ const clubLead = {
   role: "Club Lead",
   photo: anshphoto,
   bio: "Ansh leads Persona with vision and dedication, ensuring every idea turns into impactful results and drives the club towards excellence.",
-  email: "ansh.upadhyay@persona.club",
-  phone: "+91 00000 00000",
-  expertise: "Leadership, Strategy, Public Speaking",
-  experience: "3+ Years",
-  socials: { linkedin: "#"},
+  team: "Core Team",
+  socials: { linkedin: "#" },
 };
 
 const executiveCoordinators = [
@@ -433,11 +425,8 @@ const executiveCoordinators = [
     role: "Executive Coordinator",
     photo: vedphoto,
     bio: "Vedansh keeps every initiative on track, coordinating across teams to make sure deadlines and quality never slip.",
-    email: "vedansh.srivastava@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Operations, Communication",
-    experience: "2+ Years",
-    socials: { linkedin: "#"},
+    team: "Core Team",
+    socials: { linkedin: "#" },
   },
   {
     id: "lucky",
@@ -445,10 +434,7 @@ const executiveCoordinators = [
     role: "Executive Coordinator",
     photo: luckyphoto,
     bio: "Lucky bridges design and execution, turning plans into events people actually remember.",
-    email: "lucky.chelani@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Event Management, Design",
-    experience: "2+ Years",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -457,10 +443,7 @@ const executiveCoordinators = [
     role: "Executive Coordinator",
     photo: suyashphoto,
     bio: "Suyash drives outreach and partnerships, growing the community one connection at a time.",
-    email: "suyash.pandey@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Outreach, Partnerships",
-    experience: "2+ Years",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
 ];
@@ -472,10 +455,7 @@ const studentCoordinators = [
     role: "Student Coordinator",
     photo: aparnaphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -484,10 +464,7 @@ const studentCoordinators = [
     role: "Student Coordinator",
     photo: titkphoto,
     bio: "Titiksha handles content and communication, keeping the community informed and engaged.",
-    email: "titiksha@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Content, Communication",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -496,10 +473,7 @@ const studentCoordinators = [
     role: "Student Coordinator",
     photo: paragphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -508,88 +482,64 @@ const studentCoordinators = [
     role: "Student Coordinator",
     photo: shrishtiphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-    {
+  {
     id: "shifa",
     name: "Shifa",
     role: "Student Coordinator",
     photo: shifaphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-    {
+  {
     id: "aditya",
     name: "Aditya Malviya",
     role: "Student Coordinator",
     photo: adityaphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "adityas",
     name: "Aditya Sharma",
     role: "Student Coordinator",
     photo: adityasphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "rashi",
     name: "Rashi Meena",
     role: "Student Coordinator",
     photo: rashiphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "mahima",
     name: "Mahima",
     role: "Student Coordinator",
     photo: mahimaphoto,
     bio: "Parag manages logistics and on-ground execution for every Persona event.",
-    email: "parag@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Logistics, Execution",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
 ];
 
-// TODO: swap the placeholder photo/name below for each real volunteer
-// once their details and photos are ready — mirrors the placeholder
-// entries currently in Community.jsx.
-const studentVolunteers=[ 
-    {
+const studentVolunteers = [
+  {
     id: "udita",
     name: "Udita Sharma",
     role: "Student Volunteer",
     photo: uditaphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -598,10 +548,7 @@ const studentVolunteers=[
     role: "Student Volunteer",
     photo: amishaphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -610,10 +557,7 @@ const studentVolunteers=[
     role: "Student Volunteer",
     photo: muneezahphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -622,10 +566,7 @@ const studentVolunteers=[
     role: "Student Volunteer",
     photo: aryanphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -634,10 +575,7 @@ const studentVolunteers=[
     role: "Student Volunteer",
     photo: rajveerphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -646,10 +584,7 @@ const studentVolunteers=[
     role: "Student Volunteer",
     photo: devendraphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
   {
@@ -658,202 +593,151 @@ const studentVolunteers=[
     role: "Student Volunteer",
     photo: abhiphoto,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-    {
+  {
     id: "mahak",
     name: "Mahak Kapse",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "nikhil",
     name: "Nikhil Mishra",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "brijesh",
     name: "Brijesh Patel",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "paryul",
     name: "Paryul Jain",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "anshuman",
     name: "Anshuman Ahirwar",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "navni",
     name: "Navni Shriwastava",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "anushka",
     name: "Anushka Choubey",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "siddhesh",
     name: "Siddhesh Verma",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "utkarsh",
     name: "Utkarsh Bawankar",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "mayank",
     name: "Mayank Parmar",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "sejal",
     name: "Sejal Dohare",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "priyesha",
     name: "Priyesha Bharwaya",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "mansu",
     name: "Mansu Singh",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "shiv",
     name: "Shiv Vishwakarma",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "mantra",
     name: "Mantra Gupta",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
-      {
+  {
     id: "aliya",
     name: "Aliya Izma Khan",
     role: "Student Volunteer",
     photo: null,
     bio: "Aparna works closely with volunteers, making sure every member has what they need to contribute.",
-    email: "aparna@persona.club",
-    phone: "+91 00000 00000",
-    expertise: "Community Building",
-    experience: "1+ Year",
+    team: "Core Team",
     socials: { linkedin: "#" },
   },
 ];
