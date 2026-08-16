@@ -4,25 +4,20 @@ import Logo from '../ui/Logo';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-0 md:min-h-[80vh] flex flex-col items-center justify-start md:justify-center pt-2 pb-10 sm:py-16 px-4 md:px-8 overflow-hidden bg-transparent w-full">
-      
+    <section className="relative min-h-0 md:min-h-[85vh] flex flex-col items-center justify-center pt-6 pb-12 sm:py-16 px-4 md:px-8 overflow-hidden bg-transparent w-full">
+
       {/* Background Grid Line Layer with Smooth Multi-Stop Radial Fading (Submerged into Corners) */}
-      <div 
-        className="pointer-events-none absolute -inset-y-8 -inset-x-8 sm:inset-0 z-0 opacity-80" 
+      <div
+        className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-80 bg-grid-pattern"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
-          `,
-          backgroundSize: '44px 44px',
-          WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 45%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%)',
-          maskImage: 'radial-gradient(ellipse 100% 100% at 50% 45%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%)'
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.15) 85%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 90% 80% at 50% 38%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.15) 85%, transparent 100%)'
         }}
       />
 
       {/* Main Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4 sm:gap-6">
-        
+
         {/* Persona Logo at the Top */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
@@ -56,7 +51,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-2xl sm:max-w-3xl text-neutral-300 text-center text-base sm:text-lg md:text-xl font-normal leading-relaxed mt-2"
         >
-          Most freshers join feeling hesitant, anxious on stage, or afraid of speaking English. 
+          Most freshers join feeling hesitant, anxious on stage, or afraid of speaking English.
           We turn that quiet voice into magnetic leadership, one zero-judgment session at a time.
         </motion.p>
 

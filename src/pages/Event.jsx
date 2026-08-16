@@ -77,7 +77,7 @@ function Events() {
                         timeline={timelineEvents}
                     />
                 </div>
-                
+
             </div>
             <ImageSlideshow />
         </div>

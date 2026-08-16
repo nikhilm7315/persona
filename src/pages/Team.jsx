@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
+import Title from "../components/ui/Title";
 
 import anshphoto from "../assets/Member_images/ansh.png";
 import vedphoto from "../assets/Member_images/vedhanshi.png";
@@ -60,12 +61,10 @@ export default function TeamPage({ members = defaultMembers }) {
 
       <div className="relative z-10 flex-1 flex flex-col">
         <div className="max-w-7xl w-full mx-auto px-3 sm:px-6 md:px-8 py-8 md:py-16">
-          <p className="text-blue-400 text-xs font-semibold tracking-[0.15em] mb-2 sm:mb-3">
-            OUR TEAM
-          </p>
-          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold leading-tight mb-6 md:mb-10">
-            The People Behind Our Success
-          </h1>
+          <Title
+            title="The People Behind Our Success"
+            className="mb-8 md:mb-12"
+          />
 
           <div className="flex flex-row gap-4 sm:gap-6 lg:gap-10">
             <div className="w-[130px] sm:w-[180px] md:w-[240px] lg:w-[340px] shrink-0">
@@ -120,14 +119,14 @@ function NameScroller({ members, activeId, onSelect }) {
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
-useEffect(() => {
-  const index = members.findIndex((m) => m.id === activeId);
-  if (index === -1) return;
-  const centerY = containerHeight / 2;
-  const target = index * ITEM_HEIGHT + ITEM_HEIGHT / 2 - centerY;
-  yRef.current = wrap(target);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [containerHeight]);
+  useEffect(() => {
+    const index = members.findIndex((m) => m.id === activeId);
+    if (index === -1) return;
+    const centerY = containerHeight / 2;
+    const target = index * ITEM_HEIGHT + ITEM_HEIGHT / 2 - centerY;
+    yRef.current = wrap(target);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [containerHeight]);
 
   // Mouse wheel scrolls the list manually (needs a non-passive listener
   // so we can preventDefault and stop the page itself from scrolling).
@@ -135,16 +134,16 @@ useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const onWheel = (e) => {
-  e.preventDefault();
-  yRef.current = wrap(yRef.current + e.deltaY * 0.6);
-};
+      e.preventDefault();
+      yRef.current = wrap(yRef.current + e.deltaY * 0.6);
+    };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, [singleHeight]);
 
   useEffect(() => {
-const tick = () => {
-  const centerY = containerHeight / 2;
+    const tick = () => {
+      const centerY = containerHeight / 2;
 
       if (trackRef.current) {
         trackRef.current.style.transform = `translateY(${-yRef.current}px)`;
@@ -177,8 +176,8 @@ const tick = () => {
   }, [containerHeight, singleHeight, members.length]);
 
   const handleClick = (member, index) => {
-onSelect(member.id);
-const centerY = containerHeight / 2;
+    onSelect(member.id);
+    const centerY = containerHeight / 2;
     const target = index * ITEM_HEIGHT + ITEM_HEIGHT / 2 - centerY;
     yRef.current = wrap(target);
   };

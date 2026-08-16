@@ -8,9 +8,11 @@ const LinkedinIcon = ({ size = 16 }) => (
   </svg>
 )
 
-const FacebookIcon = ({ size = 16 }) => (
+const InstagramIcon = ({ size = 16 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 )
 
@@ -29,7 +31,7 @@ const QUICK_LINKS = [
 
 const SOCIAL_LINKS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/thepersonasoit/posts/?feedView=all', Icon: LinkedinIcon },
-  { label: 'Facebook', href: '#', Icon: FacebookIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/personasoit/?hl=en', Icon: InstagramIcon },
   { label: 'Twitter', href: '#', Icon: TwitterIcon },
 ]
 
@@ -38,7 +40,7 @@ function Footer({
   email = 'thepersonasoit@gmail.com',
 }) {
   return (
-    <footer className="relative overflow-hidden w-full mt-16 rounded-none px-6 sm:px-10 md:px-16 py-10 md:py-14 bg-persona-footer border-t border-white/10 text-white font-league-spartan shadow-lg">
+    <footer className="relative overflow-hidden w-full mt-0 rounded-none px-6 sm:px-10 md:px-16 py-10 md:py-14 bg-persona-footer text-white font-league-spartan shadow-lg">
       {/* Background Glow */}
       <div className="footer-glow" />
 
@@ -89,6 +91,8 @@ function Footer({
             <a
               key={label}
               href={href}
+              target={href.startsWith('http') ? '_blank' : undefined}
+              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
               aria-label={label}
               className="flex items-center justify-center w-9 h-9 rounded-full border border-white/40 hover:border-persona-orange hover:text-persona-orange hover:bg-white/5 transition-colors"
             >

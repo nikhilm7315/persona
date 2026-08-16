@@ -17,7 +17,7 @@ function TimelineCard({ event, isActive, onHover }) {
           {event.month} {event.year}
         </span>
       </div>
-      
+
       {/* Title */}
       <h4 className="text-xs font-light font-league-spartan text-white/90 leading-tight">
         {event.title}
@@ -45,7 +45,7 @@ function EventDetailsPanel({ event, timeline = [] }) {
   }
 
   return (
-    <div 
+    <div
       className={`
         h-full flex gap-8 transition-opacity duration-500
         ${fadeIn ? 'opacity-100' : 'opacity-0'}
@@ -77,7 +77,7 @@ function EventDetailsPanel({ event, timeline = [] }) {
             History
           </h3>
         </div>
-        
+
         {/* Scrollable Timeline Cards */}
         <div className="flex-1 flex flex-col overflow-y-auto custom-scrollbar pr-1">
           {timeline.map((timelineEvent, index) => (

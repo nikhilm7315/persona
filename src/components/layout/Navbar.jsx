@@ -10,7 +10,7 @@ export default function Navbar({ onOpenJoinModal }) {
   return (
     <header className="sticky top-0 z-50 w-full bg-transparent pt-3 pb-1 px-4 sm:px-10 lg:px-14">
       <div className="w-full flex items-center justify-between relative">
-        
+
         {/* Left: Persona Logo (Far left edge) */}
         <Link to="/" className="flex items-center shrink-0 hover:opacity-95 transition-opacity z-10">
           <Logo size="nav" className="h-12 sm:h-14 md:h-16 w-auto object-contain" />
@@ -31,12 +31,14 @@ export default function Navbar({ onOpenJoinModal }) {
 
         {/* Right: Vibrant Blue CTA Pill Button (Far right edge) */}
         <div className="hidden lg:flex items-center shrink-0 z-10">
-          <button
-            onClick={onOpenJoinModal}
+          <a
+            href="https://chat.whatsapp.com/GPB1v8QqoS78xD8h98ZhlB?s=sw&p=a&ilr=0"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center font-semibold text-xs lg:text-sm text-white px-7 py-3 rounded-full bg-[#0052FF] hover:bg-[#0042D0] shadow-[0_0_22px_rgba(0,82,255,0.45)] hover:shadow-[0_0_32px_rgba(0,82,255,0.7)] transition-all duration-300 cursor-pointer active:scale-95"
           >
             Join Persona
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -53,13 +55,13 @@ export default function Navbar({ onOpenJoinModal }) {
       {/* Fullscreen Mobile Drawer Menu Overlay */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 min-h-screen w-full bg-[#010626]/98 backdrop-blur-3xl z-50 flex flex-col justify-between p-6 sm:p-10 lg:hidden overflow-y-auto animate-fade-in">
-          
+
           {/* Top Header Row in Fullscreen Menu */}
           <div className="flex items-center justify-between w-full pb-6 border-b border-white/10">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center">
               <Logo size="nav" className="h-12 w-auto object-contain" />
             </Link>
-            
+
             <button
               onClick={() => setMobileMenuOpen(false)}
               className="w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center hover:bg-white/15 transition-all active:scale-95"
@@ -77,8 +79,7 @@ export default function Navbar({ onOpenJoinModal }) {
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight transition-all duration-300 ${
-                    isActive ? 'text-[#0052FF] translate-x-2' : 'text-white hover:text-[#0052FF] hover:translate-x-2'
+                  `font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight transition-all duration-300 ${isActive ? 'text-[#0052FF] translate-x-2' : 'text-white hover:text-[#0052FF] hover:translate-x-2'
                   }`
                 }
               >
@@ -89,15 +90,15 @@ export default function Navbar({ onOpenJoinModal }) {
 
           {/* Bottom Action Area */}
           <div className="pt-6 border-t border-white/10">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenJoinModal) onOpenJoinModal();
-              }}
-              className="w-full py-4 rounded-full bg-[#0052FF] hover:bg-[#0042D0] text-white font-bold text-base sm:text-lg shadow-[0_0_30px_rgba(0,82,255,0.6)] transition-all active:scale-95"
+            <a
+              href="https://chat.whatsapp.com/GPB1v8QqoS78xD8h98ZhlB?s=sw&p=a&ilr=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-4 rounded-full bg-[#0052FF] hover:bg-[#0042D0] text-white font-bold text-base sm:text-lg shadow-[0_0_30px_rgba(0,82,255,0.6)] transition-all active:scale-95 inline-flex items-center justify-center text-center"
             >
               Join Persona
-            </button>
+            </a>
           </div>
 
         </div>
