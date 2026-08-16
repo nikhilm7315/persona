@@ -94,7 +94,6 @@ export default function TeamPage({ members = defaultMembers }) {
 /* ------------------------------------------------------------------ */
 
 const ITEM_HEIGHT = 64;
-const SPEED = 34; // px / second
 
 function NameScroller({ members, activeId, onSelect }) {
   const containerRef = useRef(null);
@@ -102,12 +101,10 @@ function NameScroller({ members, activeId, onSelect }) {
   const itemRefs = useRef([]);
   const yRef = useRef(0);
   const rafRef = useRef(null);
-  const pausedRef = useRef(false);
   const draggingRef = useRef(false);
   const pointerIdRef = useRef(null);
   const dragStartYRef = useRef(0);
   const dragStartPosRef = useRef(0);
-  const lastInteractionRef = useRef(0);
   const [containerHeight, setContainerHeight] = useState(300);
 
   const list = [...members, ...members];
@@ -123,38 +120,31 @@ function NameScroller({ members, activeId, onSelect }) {
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
+useEffect(() => {
+  const index = members.findIndex((m) => m.id === activeId);
+  if (index === -1) return;
+  const centerY = containerHeight / 2;
+  const target = index * ITEM_HEIGHT + ITEM_HEIGHT / 2 - centerY;
+  yRef.current = wrap(target);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [containerHeight]);
+
   // Mouse wheel scrolls the list manually (needs a non-passive listener
   // so we can preventDefault and stop the page itself from scrolling).
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const onWheel = (e) => {
-      e.preventDefault();
-      lastInteractionRef.current = performance.now();
-      yRef.current = wrap(yRef.current + e.deltaY * 0.6);
-    };
+  e.preventDefault();
+  yRef.current = wrap(yRef.current + e.deltaY * 0.6);
+};
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, [singleHeight]);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    let last = performance.now();
-
-    const tick = (now) => {
-      const dt = (now - last) / 1000;
-      last = now;
-
-      // Only drift on its own once the user has been idle for a bit —
-      // manual wheel/drag scrolling always takes priority.
-      const idle = now - lastInteractionRef.current > 1200;
-      if (!pausedRef.current && !draggingRef.current && !prefersReduced && idle) {
-        yRef.current = wrap(yRef.current + SPEED * dt);
-      }
-
-      const centerY = containerHeight / 2;
+const tick = () => {
+  const centerY = containerHeight / 2;
 
       if (trackRef.current) {
         trackRef.current.style.transform = `translateY(${-yRef.current}px)`;
@@ -187,9 +177,8 @@ function NameScroller({ members, activeId, onSelect }) {
   }, [containerHeight, singleHeight, members.length]);
 
   const handleClick = (member, index) => {
-    onSelect(member.id);
-    lastInteractionRef.current = performance.now();
-    const centerY = containerHeight / 2;
+onSelect(member.id);
+const centerY = containerHeight / 2;
     const target = index * ITEM_HEIGHT + ITEM_HEIGHT / 2 - centerY;
     yRef.current = wrap(target);
   };
@@ -199,21 +188,13 @@ function NameScroller({ members, activeId, onSelect }) {
     pointerIdRef.current = e.pointerId;
     dragStartYRef.current = e.clientY;
     dragStartPosRef.current = yRef.current;
-    lastInteractionRef.current = performance.now();
   };
 
   const handlePointerMove = (e) => {
     if (pointerIdRef.current !== e.pointerId) return;
     const delta = dragStartYRef.current - e.clientY;
 
-    if (!draggingRef.current) {
-      if (Math.abs(delta) < 6) return; // small jitter — still a click, not a drag
-      draggingRef.current = true;
-      containerRef.current?.setPointerCapture?.(e.pointerId);
-    }
-
     yRef.current = wrap(dragStartPosRef.current + delta);
-    lastInteractionRef.current = performance.now();
   };
 
   const handlePointerUp = (e) => {
@@ -229,8 +210,7 @@ function NameScroller({ members, activeId, onSelect }) {
       ref={containerRef}
       className="relative w-full overflow-hidden select-none cursor-grab active:cursor-grabbing"
       style={{ height: containerHeight, touchAction: "none" }}
-      onMouseEnter={() => (pausedRef.current = true)}
-      onMouseLeave={() => (pausedRef.current = false)}
+
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
