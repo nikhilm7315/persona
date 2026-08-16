@@ -1,14 +1,20 @@
+import React from 'react'
+import HeroSection from '../components/Home/HeroSection'
 import Button from "@/components/ui/Button"
 import Title from "../components/ui/Title"
-import Logo from '../components/ui/Logo'
-import EventSlider from '../components/Home/EventSlider'
 import TeamSection from '../components/Home/TeamSection'
 import EventHome from "../components/Home/EventHome"
 
 function Home() {
   return (
     <div className="flex-1 flex flex-col items-center justify-center p-8 gap-16">
-      {/* Hero Section */}
+      
+      {/* 1. Headline Hero Section */}
+      <div className="w-full">
+        <HeroSection />
+      </div>
+
+      {/* 2. Existing Hero Section */}
       <div className="flex flex-col items-center gap-8 animate-fade-in-up">
         <Title
           title="Unlock Your Potential"
@@ -17,12 +23,7 @@ function Home() {
         <Button className='w-60' variant="wide">Join Our Community</Button>
       </div>
 
-      {/* Logo Glow */}
-      <div className="logo-glow animate-float flex justify-center my-12">
-        <Logo size="hero" />
-      </div>
-
-      {/* Our Vision Section */}
+      {/* 3. Our Vision Section */}
       <div className="flex flex-col items-center gap-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
         <Title
           title="Our Vision"
@@ -30,18 +31,12 @@ function Home() {
         />
       </div>
 
-      {/* Upcoming Events Section */}
-      <div className="w-full flex flex-col items-center gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-        <Title title="Upcoming Events" />
-        <EventSlider />
-      </div>
-
-      {/* Meet Our Team Section */}
-      <div className="w-full animate-fade-in-up" style={{ animationDelay: '600ms' }}>
+      {/* 4. Meet Our Team Section */}
+      <div className="w-full animate-fade-in-up" style={{ animationDelay: '400ms' }}>
         <TeamSection />
       </div>
 
-      {/*Never Ending Events Section*/}
+      {/* 5. Never Ending Events Section */}
       <div>
         <EventHome />
       </div>

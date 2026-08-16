@@ -38,12 +38,12 @@ function Footer({
   email = 'thepersonasoit@gmail.com',
 }) {
   return (
-    <footer className="relative overflow-hidden mx-4 md:mx-10 mb-10 mt-16 rounded-[28px] px-8 py-10 md:px-14 md:py-12 bg-persona-footer border border-white/10 text-white font-league-spartan shadow-lg">
+    <footer className="relative overflow-hidden w-full mt-16 rounded-none px-6 sm:px-10 md:px-16 py-10 md:py-14 bg-persona-footer border-t border-white/10 text-white font-league-spartan shadow-lg">
       {/* Background Glow */}
       <div className="footer-glow" />
 
       {/* Main Footer Content */}
-      <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-10 lg:gap-16 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:justify-between items-start gap-10 lg:gap-16 relative z-10">
         {/* Left Column: Logo & Contact */}
         <div className="flex flex-col gap-3 min-w-[220px]">
           <Logo />
@@ -79,10 +79,10 @@ function Footer({
       </div>
 
       {/* Divider */}
-      <hr className="border-white/25 my-8 relative z-10" />
+      <hr className="max-w-7xl mx-auto border-white/25 my-8 relative z-10" />
 
       {/* Bottom Bar: Socials & Copyright */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/80 relative z-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/80 relative z-10">
         {/* Social Icons */}
         <div className="flex items-center gap-3">
           {SOCIAL_LINKS.map(({ label, href, Icon }) => (

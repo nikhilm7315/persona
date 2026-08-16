@@ -404,14 +404,7 @@ function Photo({ member }) {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Member data — grouped the same way as Community.jsx (club lead,     */
-/* executive coordinators, student coordinators, volunteers), using    */
-/* the same imported photo pattern. Fill in bio / email / phone /      */
-/* expertise / experience / socials for each person, then swap the     */
-/* placeholder Aparna photo on the volunteers once their real photos   */
-/* are ready.                                                          */
-/* ------------------------------------------------------------------ */
+
 
 const clubLead = {
   id: "ansh",

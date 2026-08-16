@@ -11,6 +11,10 @@
     will-change: transform;
 }
 
+.image-slideshow:hover .image-slideshow__track {
+    animation-play-state: paused;
+}
+
 .image-slideshow__group {
     display: flex;
     flex: 0 0 auto;
@@ -23,6 +27,13 @@
     object-fit: cover;
     background: #111827;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.image-slideshow__placeholder:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.45);
 }
 
 @keyframes image-placeholder-scroll {

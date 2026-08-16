@@ -6,6 +6,49 @@ import eventillustration1 from '../assets/eventillustration1.png'
 import eventillustration2 from '../assets/eventillustration2.png'
 import eventillustration3 from '../assets/eventillustration3.jpg'
 
+export const upcomingEvent = {
+  id: "next-flagship",
+  title: "The Stage Unlocked: Extempore & JAM Championship",
+  subtitle: "Step onto the spotlight. 60 seconds. Zero preparation. Maximum adrenaline.",
+  date: "Saturday, August 22, 2026",
+  time: "04:30 PM IST",
+  venue: "SOIT Main Auditorium, RGPV Campus",
+  category: "Flagship Session",
+  entryFee: "Free Entry (SOIT Students)",
+  badge: "Registration Open",
+  description: "Join us for an electrifying evening of spontaneous speaking, audience cheers, and constructive feedback from senior campus anchors. Designed specifically for freshers who want to test their speed and conquer stage nervousness.",
+  perks: [
+    "1-on-1 feedback from senior anchors",
+    "Stage certificate of participation",
+    "High-energy zero-judgment audience",
+    "Refreshments & networking"
+  ]
+};
+
+export const pastEventHighlights = [
+  {
+    id: 1,
+    title: "Mock Placement GD Marathon",
+    date: "July 2026",
+    tag: "Career Ready",
+    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    id: 2,
+    title: "Parliamentary Debate Showcase",
+    date: "June 2026",
+    tag: "Critical Thinking",
+    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    id: 3,
+    title: "Body Language & Vocal Masterclass",
+    date: "May 2026",
+    tag: "Workshop",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600"
+  }
+];
+
 export const EVENTS_LIST = [
   {
     id: 'linkedin-session',
@@ -151,4 +194,4 @@ export const EVENTS_LIST = [
       },
     ],
   },
-]
+];

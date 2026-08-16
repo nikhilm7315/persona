@@ -27,21 +27,10 @@
 }
 
 @layer base {
+
   /* ============================================
      UNIVERSAL BACKGROUND SYSTEM
      ============================================
-     Production-grade approach for consistent background across all pages:
-     
-     1. Applied to <html> element (root) for maximum coverage
-     2. Uses 'background-attachment: fixed' to prevent scroll issues
-     3. Ensures gradient stays consistent during navigation
-     4. Body background set to 'transparent' to inherit html background
-     
-     This approach ensures:
-     - No page-specific background overrides needed
-     - Consistent visual experience across all routes
-     - Smooth transitions between pages
-     - No flash of background color on route changes
   */
   html {
     @apply font-sans;
@@ -51,7 +40,7 @@
     min-height: 100vh;
     scroll-behavior: smooth;
   }
-  
+
   body {
     background: transparent;
     color: #ffffff;
@@ -59,7 +48,7 @@
     overflow-x: hidden;
     @apply text-foreground;
   }
-  
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -70,52 +59,56 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: #0052ff;
     color: #ffffff;
+    box-shadow: 0 0 22px rgba(0, 82, 255, 0.45);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   .btn-primary:hover {
-    background: #00b4d8;
-    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
+    background: #0042d0;
+    box-shadow: 0 0 32px rgba(0, 82, 255, 0.7);
   }
 }
 
 @layer utilities {
+
   /* Universal background class for consistent application across all pages */
   .glow-bg {
     position: relative;
     background: transparent;
   }
-  
+
   /* Custom scrollbar styling - Minimal monochrome */
   .custom-scrollbar::-webkit-scrollbar {
     width: 3px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 2px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.25);
   }
-  
+
   /* Scroll snap utility for smooth card centering */
   .snap-y {
     scroll-snap-type: y proximity;
   }
-  
+
   .snap-center {
     scroll-snap-align: center;
     scroll-snap-stop: always;
   }
-  
+
   .gradient-ring {
     position: relative;
   }
+
   .gradient-ring::before {
     content: '';
     position: absolute;
@@ -140,6 +133,15 @@
   .logo-glow {
     position: relative;
   }
+
+  /* Crisp background grid line pattern matching reference image */
+  .bg-grid-pattern {
+    background-size: 48px 48px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  }
+
   .logo-glow::before {
     content: '';
     position: absolute;
@@ -165,9 +167,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -178,6 +183,7 @@
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -185,10 +191,13 @@
 }
 
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.95;
     transform: scale(1.08);
@@ -310,11 +319,11 @@
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
