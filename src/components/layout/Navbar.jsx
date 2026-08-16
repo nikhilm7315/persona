@@ -8,7 +8,7 @@ export default function Navbar({ onOpenJoinModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent pt-4 pb-2 px-6 sm:px-10 lg:px-14">
+    <header className="sticky top-0 z-50 w-full bg-transparent pt-3 pb-1 px-4 sm:px-10 lg:px-14">
       <div className="w-full flex items-center justify-between relative">
         
         {/* Left: Persona Logo (Far left edge) */}

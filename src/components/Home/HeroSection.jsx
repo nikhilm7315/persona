@@ -4,33 +4,33 @@ import Logo from '../ui/Logo';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[80vh] flex flex-col items-center justify-center py-16 px-4 md:px-8 overflow-hidden bg-transparent">
+    <section className="relative min-h-0 md:min-h-[80vh] flex flex-col items-center justify-start md:justify-center pt-2 pb-10 sm:py-16 px-4 md:px-8 overflow-hidden bg-transparent w-full">
       
-      {/* Background Grid Line Layer with Smooth Radial Fading (No Sharp Edges) */}
+      {/* Background Grid Line Layer with Smooth Multi-Stop Radial Fading (Submerged into Corners) */}
       <div 
-        className="pointer-events-none absolute inset-0 z-0 opacity-90" 
+        className="pointer-events-none absolute -inset-y-8 -inset-x-8 sm:inset-0 z-0 opacity-80" 
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.095) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.095) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
           `,
-          backgroundSize: '48px 48px',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)',
-          maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 78%)'
+          backgroundSize: '44px 44px',
+          WebkitMaskImage: 'radial-gradient(ellipse 100% 100% at 50% 45%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%)',
+          maskImage: 'radial-gradient(ellipse 100% 100% at 50% 45%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%)'
         }}
       />
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-6">
+      <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center gap-4 sm:gap-6">
         
         {/* Persona Logo at the Top */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="logo-glow animate-float flex justify-center mb-2"
+          className="logo-glow animate-float flex justify-center mb-1 sm:mb-2"
         >
-          <Logo size="hero" className="w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 object-contain" />
+          <Logo size="hero" className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 object-contain" />
         </motion.div>
 
         {/* 3-Line Headline */}
