@@ -1,7 +1,8 @@
-import alumniImg from '../assets/alumniInteraction.jpg'
-import linkedImg from '../assets/linkedInWorkshop.jpg'
-import speakoff from '../assets/speakoff.png'
-import vichaarSangam from '../assets/vichaarSnagam.png'
+import alumniImg from '../assets/EventImages/alumniInteraction.jpg'
+import linkedImg from '../assets/EventImages/linkedInWorkshop.jpg'
+import speakoff from '../assets/EventImages/speakoff.png'
+import vichaarSangam from '../assets/EventImages/vichaarSangam.jpg'
+import laCasaPoster from '../assets/EventImages/LaCasaDeDiscussionsPoster.jpg'
 import eventillustration1 from '../assets/eventillustration1.png'
 import eventillustration2 from '../assets/eventillustration2.png'
 import eventillustration3 from '../assets/eventillustration3.jpg'
@@ -130,7 +131,7 @@ export const EVENTS_LIST = [
     id: 'alumni-interaction',
     heading: 'Alumni Interaction',
     title: 'Alumni Interaction',
-    description: "The Persona Club's Alumni Interaction: An Evening of Inspiration and Possibility featured esteemed graduates Asad Khan (Ericsson), Ankit Upadhyay (Google), and Amit Sharma (Meta), who shared inspiring journeys from campus to global tech leadership. Speaking candidly about challenges, adaptability, and balancing ambition with growth, they advised students to cultivate focused learning, explore varied domains, and embrace complexity. An engaging Q&A covered topics from quantum computing to soft skills, fostering a meaningful exchange that bridged alumni and students, leaving participants with renewed ambition, practical guidance, and a strong sense of connection to their alma mater.",
+    description: "The Persona Club's Alumni Interaction: An Evening of Inspiration and Possibility featured esteemed graduates Asad Khan (Ericsson), Ankit Upadhyay (Google), and Amit Sharma (Meta), who shared inspiring journeys from campus to global tech leadership. Speaking candidly about challenges, adaptability, and balancing ambition with growth, they advised students to cultivate focused learning, explore varied domains, and embrace complexity. An engaging Q&A covered topics from quantum computing to soft skills, fostering a meaningful exchange that bridged alumni and students.",
     src: alumniImg,
     image: eventillustration2,
     timeline: [
@@ -194,4 +195,22 @@ export const EVENTS_LIST = [
       },
     ],
   },
+  {
+    id: 'la-casa-de-discussions',
+    heading: 'La Casa De Discussions',
+    title: 'La Casa De Discussions',
+    description: `La Casa De Discussion was an online group discussion event focused on communication skills, clarity of thought, and presence of mind.It encouraged meaningful conversations, diverse opinions, and confident expression.The event aimed to enhance public speaking, logical thinking, and respectful debating.It also helped participants build confidence while providing a competitive yet collaborative platform.
+    
+    The event was conducted in three online rounds :
+    
+    Round 1 (The Main Hall): It was an elimination round testing basic discussion skills.
+    Round 2 (The Royal Mint): It challenged participants with dynamic topics and critical thinking.
+    The Final Round (The Gold Vault): It featured the top 10 participants in an intense discussion.
+
+    More than 100 students participated from which only 11 reached the finals. 3 winners were selected based on leadership, articulation, and overall impact
+`,
+    src: laCasaPoster,
+    image: laCasaPoster,
+    timeline: []
+  }
 ];
