@@ -77,6 +77,7 @@ const ImageSlideshow = () => {
 
   return (
     <section className="image-slideshow-container" aria-label="Event Highlights Gallery">
+      <h2 className="font-bold text-4xl mb-8">Event Gallery</h2>
       <div className={`image-slideshow ${imagesReady ? 'is-ready' : 'is-loading'}`}>
         <div className="image-slideshow__track">
           {renderGroup(0)}

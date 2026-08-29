@@ -67,20 +67,20 @@ function Events() {
         <div className="min-h-screen text-white py-5 px-4 sm:px-6 md:px-8 lg:px-12">
             {/* Header Details */}
             <div className="mb-12 md:mb-16 text-center max-w-4xl mx-auto">
-                <span className="text-[13px] font-light tracking-[0.2em] text-white/30 uppercase font-poppins block mb-2">
+                {/* <span className="text-[13px] font-light tracking-[0.2em] text-white/30 uppercase font-poppins block mb-2">
                     Event Showcase
-                </span>
-                <h1 className="text-4xl md:text-5xl font-light font-league-spartan text-white/90 tracking-tight leading-none mb-2">
+                </span> */}
+                <h1 className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tight mb-4 text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                     Never Ending Events
                 </h1>
-                <p className="text-[14px] md:text-[15px] font-light font-poppins text-white/40 leading-relaxed max-w-lg mx-auto">
+                <p className="text-[14px] md:text-[15px] font-light font-poppins text-white leading-relaxed max-w-lg mx-auto">
                     Explore the milestones, workshops, and gatherings that define our community.
                 </p>
             </div>
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-6 lg:gap-10 xl:gap-12 items-start">
                 {/* Left Side: Queue of Cards */}
-                <div className="md:col-span-5 lg:col-span-5 xl:col-span-4 flex flex-col items-center md:items-start">
+                <div className="md:col-span-5 lg:col-span-5 xl:col-span-4 flex flex-col items-center md:items-start relative z-0">
                     <div className="flex flex-col gap-20 md:gap-24 lg:gap-36 pb-16 md:pb-20 mt-2 md:mt-4 w-full items-center md:items-start snap-y snap-proximity">
                         {EVENTS_LIST.map((event, index) => (
                             <div
