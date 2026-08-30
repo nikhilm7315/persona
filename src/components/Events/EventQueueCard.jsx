@@ -10,7 +10,7 @@ function EventQueueCard({ id, title, description, src, image, isActive, onClick 
     <div
       onClick={onClick}
       className={`group relative z-0 isolate w-full max-w-[320px] sm:max-w-[340px] md:max-w-[280px] lg:max-w-[320px] xl:max-w-[340px] aspect-[2/3] rounded-[24px] md:rounded-[28px] overflow-hidden transition-all duration-500 cursor-pointer scroll-mt-24 ${isActive
-        ? 'ring-2 ring-[#00b4d8]/80 shadow-[0_0_35px_#0042D0] scale-[1.02] opacity-100'
+        ? 'ring-1 ring-[#00b4d8]/80 shadow-[0_0_35px_#0042D0] scale-[1.02] opacity-100'
         : 'shadow-xl shadow-black/30 opacity-75 hover:opacity-100 hover:shadow-black/50 hover:-translate-y-1 hover:scale-[1.01]'
         }`}
     >
