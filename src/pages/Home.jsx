@@ -11,14 +11,11 @@ function Home() {
       {/* 1. Full-Width Headline Hero Section with edge-to-edge ambient grid */}
       <HeroSection />
 
-      {/* Main Home Sections Container */}
-      <div className="flex flex-col items-center justify-center px-4 py-2 sm:p-8 gap-8 sm:gap-16 w-full max-w-7xl mx-auto">
-        {/* 2. Meet Our Team Section */}
-        <div className="w-full animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-          <TeamSection />
-        </div>
+      {/* 2. Full-Width Orbital Meet Our Team Section */}
+      <TeamSection />
 
-        {/* 3. Never Ending Events Section */}
+      {/* 3. Main Home Content: Never Ending Events Section */}
+      <div className="flex flex-col items-center justify-center px-4 py-8 sm:py-16 w-full max-w-7xl mx-auto">
         <div className="w-full">
           <EventHome />
         </div>
