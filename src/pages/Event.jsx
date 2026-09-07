@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { EVENTS_LIST } from '../data/eventsData'
 import EventQueueCard from '../components/Events/EventQueueCard'
 import EventDetailsPanel from '../components/Events/EventDetailsPanel'
+import EventHero from '../components/Events/EventHero'
 import ImageSlideshow from '@/components/Events/ImageSlideshow/ImageSlideShow'
 
 function Events() {
@@ -59,26 +60,26 @@ function Events() {
         }
     }, [])
 
+    const scrollToQueue = useCallback(() => {
+        const queueEl = document.getElementById('events-queue')
+        if (queueEl) {
+            queueEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+    }, [])
+
     // Get timeline for the active event
-    const activeEvent = EVENTS_LIST[activeCardIndex]
+    const activeEvent = EVENTS_LIST[activeCardIndex] || EVENTS_LIST[0]
     const timelineEvents = activeEvent?.timeline || []
 
     return (
         <div className="min-h-screen text-white py-5 px-4 sm:px-6 md:px-8 lg:px-12">
-            {/* Header Details */}
-            <div className="mb-12 md:mb-16 text-center max-w-4xl mx-auto">
-                {/* <span className="text-[13px] font-light tracking-[0.2em] text-white/30 uppercase font-poppins block mb-2">
-                    Event Showcase
-                </span> */}
-                <h1 className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tight mb-4 text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-                    Never Ending Events
-                </h1>
-                <p className="text-[14px] md:text-[15px] font-light font-poppins text-white leading-relaxed max-w-lg mx-auto">
-                    Explore the milestones, workshops, and gatherings that define our community.
-                </p>
-            </div>
+            {/* Impressive Hero Section */}
+            <EventHero onScrollToEvents={scrollToQueue} />
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-6 lg:gap-10 xl:gap-12 items-start">
+            <div
+                id="events-queue"
+                className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-6 lg:gap-10 xl:gap-12 items-start pt-4 sm:pt-8"
+            >
                 {/* Left Side: Queue of Cards */}
                 <div className="md:col-span-5 lg:col-span-5 xl:col-span-4 flex flex-col items-center md:items-start relative z-0">
                     <div className="flex flex-col gap-20 md:gap-24 lg:gap-36 pb-16 md:pb-20 mt-2 md:mt-4 w-full items-center md:items-start snap-y snap-proximity">
@@ -95,11 +96,11 @@ function Events() {
                                 />
 
                                 {/* Mobile-only Details & History Display (visible below card on phone screens < md) */}
-                                <details className="md:hidden w-full max-w-[320px] sm:max-w-[340px] mt-4 bg-white/[0.03] backdrop-blur-md rounded-2xl p-4 border border-white/10 group">
+                                <details className="md:hidden w-full max-w-[320px] sm:max-w-[340px] mt-4 bg-white/[0.03] backdrop-blur-md rounded-2xl p-4 border border-white/10 group mobile-details-accordion transition-all duration-300 open:border-[#00b4d8]/30 open:bg-white/[0.05] open:shadow-[0_4px_20px_rgba(0,180,216,0.08)]">
                                     <summary className="cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden flex items-center justify-between text-white/90 hover:text-white font-league-spartan text-base tracking-wide transition-colors">
                                         <span className="flex items-center gap-2">
                                             <span className="font-medium text-[15px]">{event.title}</span>
-                                            <span className="text-[10px] font-poppins text-white/40 uppercase tracking-wider font-light bg-white/[0.05] px-2 py-0.5 rounded-full border border-white/5">
+                                            <span className="text-[10px] font-poppins text-white/40 uppercase tracking-wider font-light bg-white/[0.05] px-2 py-0.5 rounded-full border border-white/5 transition-colors group-open:text-[#00b4d8] group-open:border-[#00b4d8]/20 group-open:bg-[#00b4d8]/10">
                                                 Details
                                             </span>
                                         </span>
@@ -113,13 +114,13 @@ function Events() {
                                         </svg>
                                     </summary>
 
-                                    <div className="mt-3 pt-3 border-t border-white/10">
+                                    <div className="mt-3 pt-3 border-t border-white/10 details-animated-content">
                                         <p className="text-xs font-light font-poppins text-white/70 leading-relaxed">
                                             {event.description}
                                         </p>
 
                                         {event.timeline && event.timeline.length > 0 && (
-                                            <details className="mt-4 pt-3 border-t border-white/10 group/history">
+                                            <details className="mt-4 pt-3 border-t border-white/10 group/history mobile-details-accordion transition-all duration-300">
                                                 <summary className="cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden flex items-center justify-between text-[11px] font-medium tracking-wider text-white/50 hover:text-white/80 uppercase font-poppins transition-colors">
                                                     <span>History &amp; Past Editions ({event.timeline.length})</span>
                                                     <svg
@@ -132,9 +133,13 @@ function Events() {
                                                     </svg>
                                                 </summary>
 
-                                                <div className="flex flex-col gap-2 mt-3">
+                                                <div className="flex flex-col gap-2 mt-3 details-animated-content">
                                                     {event.timeline.map((tItem, tIdx) => (
-                                                        <div key={tIdx} className="text-xs bg-white/[0.04] p-2.5 rounded-lg border border-white/5">
+                                                        <div
+                                                            key={tIdx}
+                                                            className="text-xs bg-white/[0.04] p-2.5 rounded-lg border border-white/5 timeline-item-animated hover:bg-white/[0.07] transition-colors"
+                                                            style={{ animationDelay: `${tIdx * 45}ms` }}
+                                                        >
                                                             <div className="flex justify-between items-center text-[11px] text-[#00b4d8] mb-1 font-poppins">
                                                                 <span>{tItem.month} {tItem.year}</span>
                                                                 <span className="bg-[#00b4d8]/10 px-1.5 py-0.5 rounded text-[10px]">{tItem.tag}</span>

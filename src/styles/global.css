@@ -105,6 +105,46 @@
     scroll-snap-stop: always;
   }
 
+  /* Mobile Details & History Expansion Animations */
+  @keyframes detailsSlideFade {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  details.mobile-details-accordion[open] > .details-animated-content {
+    animation: detailsSlideFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  details.mobile-details-accordion[open] > .details-animated-content .timeline-item-animated {
+    animation: detailsSlideFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+
+    details.mobile-details-accordion::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition: content-visibility 0.3s allow-discrete,
+                  opacity 0.3s ease,
+                  block-size 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    details.mobile-details-accordion[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+  }
+
   .gradient-ring {
     position: relative;
   }
